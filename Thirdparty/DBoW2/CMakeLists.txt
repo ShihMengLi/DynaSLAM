@@ -25,6 +25,13 @@ set(SRCS_DUTILS
   DUtils/Timestamp.cpp)
 
 find_package(OpenCV 3.0 QUIET)
+find_package(Qt5Core)
+find_package(Qt5Widgets)
+find_package(Qt5Gui)
+find_package(Qt5Test)
+find_package(Qt5Concurrent)
+find_package(Qt5OpenGL)
+
 if(NOT OpenCV_FOUND)
    find_package(OpenCV 2.4.3 QUIET)
    if(NOT OpenCV_FOUND)
