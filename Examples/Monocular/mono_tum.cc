@@ -91,14 +91,14 @@ int main(int argc, char **argv)
         // Segment out the images
         cv::Mat mask = cv::Mat::ones(480,640,CV_8U);
         cout << 
-        if(argc == 5)
-        {
-            cv::Mat maskRCNN;
-            // maskRCNN = MaskNet->GetSegmentation(im,string(argv[4]),vstrImageFilenames[ni].replace(0,4,"")); //0 background y 1 foreground
-            // cv::Mat maskRCNNdil = maskRCNN.clone();
-            // cv::dilate(maskRCNN,maskRCNNdil, kernel);
-            // mask = mask - maskRCNNdil;
-        }
+        // if(argc == 5)
+        // {
+        //     cv::Mat maskRCNN;
+        //     maskRCNN = MaskNet->GetSegmentation(im,string(argv[4]),vstrImageFilenames[ni].replace(0,4,"")); //0 background y 1 foreground
+        //     cv::Mat maskRCNNdil = maskRCNN.clone();
+        //     cv::dilate(maskRCNN,maskRCNNdil, kernel);
+        //     mask = mask - maskRCNNdil;
+        // }
 
         // Pass the image to the SLAM system
         SLAM.TrackMonocular(im, mask, tframe);
