@@ -34,9 +34,10 @@ int main(int argc, char **argv)
 
     // Retrieve paths to images
     vector<string> vstrImageFilenames;
+    vector<string> vstrMaskFilenames;
     vector<double> vTimestamps;
     string strFile = string(argv[3])+"/rgb.txt";
-    LoadImages(strFile, vstrImageFilenames, vTimestamps);
+    LoadImages(strFile, vstrImageFilenames, vstrMaskFilenames, vTimestamps);
 
     int nImages = vstrImageFilenames.size();
 
@@ -89,7 +90,8 @@ int main(int argc, char **argv)
 #endif
 
         // Segment out the images
-        cv::Mat mask = cv::Mat::ones(480,640,CV_8U);
+        cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE);
+        
         // if(argc == 5)
         // {
         //     cv::Mat maskRCNN;
@@ -143,7 +145,7 @@ int main(int argc, char **argv)
     return 0;
 }
 
-void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
+void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vector<string> &vstrMaskFilenames, vector<double> &vTimestamps)
 {
     ifstream f;
     f.open(strFile.c_str());
@@ -164,10 +166,13 @@ void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vecto
             ss << s;
             double t;
             string sRGB;
+            string sMask;
             ss >> t;
             vTimestamps.push_back(t);
             ss >> sRGB;
             vstrImageFilenames.push_back(sRGB);
+            ss >> sMask;
+            vstrMaskFileNames.push_back(sMask);
         }
     }
 }
