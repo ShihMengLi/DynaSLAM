@@ -92,7 +92,7 @@ int main(int argc, char **argv)
         // Segment out the images
         // cv::Mat mask = cv::Mat::ones(960,540,CV_8U);
         cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
-        
+        mask.cv::Mat::convertTo(mask,CV_8U);
         // if(argc == 5)
         // {
         //     cv::Mat maskRCNN;
