@@ -139,7 +139,6 @@ int main(int argc, char **argv)
     cout << "median tracking time: " << vTimesTrack[nImages/2] << endl;
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
-
     // Save camera trajectory
     SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
 
@@ -173,7 +172,7 @@ void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, vecto
             ss >> sRGB;
             vstrImageFilenames.push_back(sRGB);
             ss >> sMask;
-            vstrMaskFileNames.push_back(sMask);
+            vstrMaskFilenames.push_back(sMask);
         }
     }
 }
