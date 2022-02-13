@@ -90,8 +90,8 @@ int main(int argc, char **argv)
 #endif
 
         // Segment out the images
-        cv::Mat mask = cv::Mat::ones(960,540,CV_8U);
-        // cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE);
+        // cv::Mat mask = cv::Mat::ones(960,540,CV_8U);
+        cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
         
         // if(argc == 5)
         // {
