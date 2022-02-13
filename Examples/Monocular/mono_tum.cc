@@ -21,8 +21,8 @@
 
 using namespace std;
 
-void LoadImages(const string &strFile, vector<string> &vstrImageFilenames,
-                vector<double> &vTimestamps);
+void LoadImages(const string &strFile, vector<string> &vstrImageFilenames, 
+                vector<string> &vstrMaskFilenames, vector<double> &vTimestamps);
 
 int main(int argc, char **argv)
 {
