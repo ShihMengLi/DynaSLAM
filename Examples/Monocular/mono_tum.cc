@@ -26,7 +26,7 @@ void LoadImages(const string &strFile, vector<string> &vstrImageFilenames,
 
 int main(int argc, char **argv)
 {
-    if(argc != 4 && argc != 5)
+    if(argc != 4 && argc != 5 && argc != 6)
     {
         cerr << endl << "Usage: ./mono_tum path_to_vocabulary path_to_settings path_to_sequence (path_to_masks)" << endl;
         return 1;
@@ -88,9 +88,18 @@ int main(int argc, char **argv)
 #else
         std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
 #endif
-
+        cv::Mat mask;
         // Segment out the images
-        cv::Mat mask = cv::Mat::ones(960,540,CV_8U);
+        if (string(argv[5]) == 'woMask'){
+            cout << "Do not use mask" << endl;
+            mask = cv::Mat::ones(960,540,CV_8U);
+        }
+        else{
+            cout << "Use mask" << endl;
+            mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
+            mask.cv::Mat::convertTo(mask,CV_8U);            
+        }
+        
         // cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
         // mask.cv::Mat::convertTo(mask,CV_8U);
         // if(argc == 5)
