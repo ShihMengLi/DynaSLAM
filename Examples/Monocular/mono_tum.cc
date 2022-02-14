@@ -100,7 +100,7 @@ int main(int argc, char **argv)
             mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
             mask.cv::Mat::convertTo(mask,CV_8U);            
         }
-        cout << "M = " << endl << " "  << mask << endl << endl;
+        // cout << "M = " << endl << " "  << mask << endl << endl;
         // cv::Mat mask = cv::imread(string(argv[3])+"/"+vstrMaskFilenames[ni],CV_LOAD_IMAGE_GRAYSCALE) / 255;
         // mask.cv::Mat::convertTo(mask,CV_8U);
         // if(argc == 5)
