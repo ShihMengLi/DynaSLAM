@@ -18,6 +18,7 @@
 #include "Geometry.h"
 #include "MaskNet.h"
 #include<System.h>
+#include <boost/filesystem.hpp>
 
 using namespace std;
 
@@ -150,16 +151,17 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    string saveFi = string(argv[4]);
+    string saveDir = string(argv[4]);
     string sep;
-    if (saveFi.back() == '/'){
+    if (saveDir.back() == '/'){
         sep = "";
     }
     else{
         sep = "/";
     }
-    SLAM.SaveTrajectoryTUM(saveFi + sep + "CameraTrajectory.txt");
-    SLAM.SaveKeyFrameTrajectoryTUM(saveFi + sep + "KeyFrameTrajectory.txt");
+    boost::filesystem::create_directories(saveDir);
+    SLAM.SaveTrajectoryTUM(saveDir + sep + "CameraTrajectory.txt");
+    SLAM.SaveKeyFrameTrajectoryTUM(saveDir + sep + "KeyFrameTrajectory.txt");
     return 0;
 }
 
