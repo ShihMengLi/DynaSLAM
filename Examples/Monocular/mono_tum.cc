@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 #endif
         cv::Mat mask;
         // Segment out the images
-        if (string(argv[5]) == 'woMask'){
+        if (string(argv[5]) == "woMask"){
             cout << "Do not use mask" << endl;
             mask = cv::Mat::ones(960,540,CV_8U);
         }
