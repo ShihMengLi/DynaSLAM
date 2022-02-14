@@ -159,7 +159,7 @@ int main(int argc, char **argv)
     else{
         sep = "/";
     }
-    boost::filesystem::create_directories(saveDir);
+    // boost::filesystem::create_directories(saveDir);
     SLAM.SaveTrajectoryTUM(saveDir + sep + "CameraTrajectory.txt");
     SLAM.SaveKeyFrameTrajectoryTUM(saveDir + sep + "KeyFrameTrajectory.txt");
     return 0;
