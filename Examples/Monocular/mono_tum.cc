@@ -143,7 +143,7 @@ int main(int argc, char **argv)
     // Save camera trajectory
     string saveFi = string(argv[4]);
     string sep;
-    if (saveFi[-1] == '/'){
+    if (saveFi.back() == '/'){
         sep = "";
     }
     else{
