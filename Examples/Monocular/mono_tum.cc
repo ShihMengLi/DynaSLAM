@@ -147,7 +147,7 @@ int main(int argc, char **argv)
         sep = "";
     }
     else{
-        sep = "/"
+        sep = "/";
     }
     SLAM.SaveTrajectoryTUM(saveFi + sep + "CameraTrajectory.txt");
     SLAM.SaveKeyFrameTrajectoryTUM(saveFi + sep + "KeyFrameTrajectory.txt");
